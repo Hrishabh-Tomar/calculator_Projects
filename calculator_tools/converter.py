@@ -35,6 +35,15 @@ def convert_temperature(value, from_unit, to_unit):
     Supported units: 'C', 'F', 'K'
     """
     _check_number(value)
+    if not isinstance(from_unit, str):
+        raise TypeError(
+            f"Expected from_unit to be a string, got {type(from_unit).__name__}: {from_unit!r}"
+        )
+    if not isinstance(to_unit, str):
+        raise TypeError(
+            f"Expected to_unit to be a string, got {type(to_unit).__name__}: {to_unit!r}"
+        )
+
     from_unit = from_unit.upper()
     to_unit = to_unit.upper()
 
